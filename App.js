@@ -1,18 +1,44 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, FlatList } from 'react-native';
+import { Text, View, StyleSheet, FlatList, Image } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import {
   useFonts,
-  Nabla_400Regular,
-  FragmentMono_400Regular,
-  FragmentMono_400Regular_Italic,
-} from '@expo-google-fonts/dev';
+  JetBrainsMono_100Thin,
+  JetBrainsMono_200ExtraLight,
+  JetBrainsMono_300Light,
+  JetBrainsMono_400Regular,
+  JetBrainsMono_500Medium,
+  JetBrainsMono_600SemiBold,
+  JetBrainsMono_700Bold,
+  JetBrainsMono_800ExtraBold,
+  JetBrainsMono_100Thin_Italic,
+  JetBrainsMono_200ExtraLight_Italic,
+  JetBrainsMono_300Light_Italic,
+  JetBrainsMono_400Regular_Italic,
+  JetBrainsMono_500Medium_Italic,
+  JetBrainsMono_600SemiBold_Italic,
+  JetBrainsMono_700Bold_Italic,
+  JetBrainsMono_800ExtraBold_Italic,
+} from '@expo-google-fonts/jetbrains-mono';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
-    Nabla_400Regular,
-    FragmentMono_400Regular,
-    FragmentMono_400Regular_Italic,
+    JetBrainsMono_100Thin,
+    JetBrainsMono_200ExtraLight,
+    JetBrainsMono_300Light,
+    JetBrainsMono_400Regular,
+    JetBrainsMono_500Medium,
+    JetBrainsMono_600SemiBold,
+    JetBrainsMono_700Bold,
+    JetBrainsMono_800ExtraBold,
+    JetBrainsMono_100Thin_Italic,
+    JetBrainsMono_200ExtraLight_Italic,
+    JetBrainsMono_300Light_Italic,
+    JetBrainsMono_400Regular_Italic,
+    JetBrainsMono_500Medium_Italic,
+    JetBrainsMono_600SemiBold_Italic,
+    JetBrainsMono_700Bold_Italic,
+    JetBrainsMono_800ExtraBold_Italic,
   });
   if (!fontsLoaded) {
     return <AppLoading />;
@@ -49,6 +75,7 @@ export default function App() {
               <Text style={styles.console}>
                 {item.lang} {item.ano} {item.framework}
               </Text>
+              <Image style={styles.img} source={item.capa}/>
             </View>
           )}
         />
@@ -71,24 +98,26 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   subTitle: {
-    margin: 20,
+    margin: 23,
     fontSize: 25,
-    fontWeight: 'bold',
     textAlign: 'center',
-    fontFamily: 'FragmentMono_400Regular',
+    fontFamily: 'JetBrainsMono_800ExtraBold',
     color: 'white',
   },
   paragraph: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 19,
     textAlign: 'center',
-    fontFamily: 'FragmentMono_400Regular',
+    fontFamily: 'JetBrainsMono_700Bold',
     color: 'white',
   },
+  img: {
+    width: 75,
+    height: 75,
+  }
 });
 
 const arrayConsole = [
-  { lang: 'C#', ano: '200', framework: '.NET' },
+  { lang: 'C#', ano: '2000', framework: '.NET', capa:require('./assets/csharp.png') },
   { lang: 'Java', ano: '1991', framework: 'Spring' },
   { lang: 'C++', ano: '1971', framework: 'Gtkmm' },
 ];
